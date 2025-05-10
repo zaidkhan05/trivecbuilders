@@ -1,0 +1,19 @@
+
+{
+  "name": "AHM Elite Builders",
+  "tagline": "zaid wuz here.",
+  "email": "b8df1344ae150255ffe13de1f8002feb",
+  "phone": "+1 (404) 555-0199",
+  "address": {
+    "street": "1234 Main St",
+    "city": "Atlanta",
+    "state": "GA",
+    "zip": "30301"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/ahmelitebuilders",
+    "twitter": "https://twitter.com/ahmelitebuilders",
+    "instagram": "https://www.instagram.com/ahmelitebuilders",
+    "linkedin": "https://www.linkedin.com/company/ahmelitebuilders"
+  }
+}

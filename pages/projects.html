@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Projects</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="sticky top-0 bg-white shadow z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="hover:opacity-80 transition">
+        <h1 id="company-name" class="text-2xl font-bold text-blue-700">Loading...</h1>
+      </a>
+      <nav class="space-x-6 text-sm font-semibold">
+        <a href="services.html" class="hover:text-blue-700">Services</a>
+        <a href="#" class="text-blue-700 underline">Projects</a>
+        <a href="contact.html" class="hover:text-blue-700">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Commercial Projects -->
+  <section id="commercialProjects" class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-bold mb-12">Commercial Projects</h3>
+      <div id="commercial-container" class="grid md:grid-cols-3 gap-8">
+        <!-- Projects will load here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Residential Projects -->
+  <section id="residentialProjects" class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-bold mb-12">Residential Projects</h3>
+      <div id="residential-container" class="grid md:grid-cols-3 gap-8">
+        <!-- Projects will load here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center py-6">
+    <p>&copy; 2025 <span id="company-name-footer">Company</span>. All rights reserved.</p>
+  </footer>
+
+  <!-- Script to Load JSON -->
+  <script>
+    async function loadProjects() {
+      const jsonFileDir = '../jsonfiles/';
+      const companyRes = await fetch(`${jsonFileDir}companyinfo.json`);
+      const companyData = await companyRes.json();
+
+      const projectsRes = await fetch(`${jsonFileDir}projects.json`);
+      const projectsData = await projectsRes.json();
+
+      document.getElementById('company-name').innerText = companyData.name;
+      document.getElementById('company-name-footer').innerText = companyData.name;
+
+      projectsData.projects.forEach(project => {
+        const containerId = project.type === "Commercial" ? 'commercial-container' : 'residential-container';
+        const container = document.getElementById(containerId);
+
+        // Support image as string or array
+        const image = Array.isArray(project.image) ? project.image[0] : project.image;
+
+        const div = document.createElement('div');
+        div.className = "bg-white shadow rounded overflow-hidden";
+
+        div.innerHTML = `
+          <a href="project.html?id=${project.id}" class="block hover:shadow-lg transition">
+            <img src="${image}" alt="${project.title}" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h4 class="font-semibold text-lg mb-2">${project.title}</h4>
+              <p class="text-sm">${project.description}</p>
+            </div>
+          </a>
+        `;
+
+        container.appendChild(div);
+      });
+    }
+
+    window.onload = loadProjects;
+  </script>
+
+</body>
+</html>

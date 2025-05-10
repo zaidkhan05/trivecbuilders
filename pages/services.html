@@ -1,0 +1,91 @@
+<!-- services.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="sticky top-0 bg-white shadow z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="hover:opacity-80 transition">
+        <h1 id="company-name" class="text-2xl font-bold text-blue-700">Loading...</h1>
+      </a>
+      <nav class="space-x-6 text-sm font-semibold">
+        <a href="#" class="hover:text-blue-700">Services</a>
+        <a href="projects.html" class="hover:text-blue-700">Projects</a>
+        <a href="contact.html" class="hover:text-blue-700">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-bold mb-12">Our Services</h3>
+      <div id="services-container" class="grid md:grid-cols-2 gap-10 text-left">
+        <!-- Services will load here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center py-6">
+    <p>&copy; 2025 <span id="company-name-footer">Company</span>. All rights reserved.</p>
+  </footer>
+
+  <!-- Script to Load JSON -->
+  <script>
+    async function loadCompanyInfo() {
+      jsonFileDir = '../jsonfiles/';
+      const companyRes = await fetch(`${jsonFileDir}companyinfo.json`);
+      const companyData = await companyRes.json();
+      const servicesRes = await fetch(`${jsonFileDir}services.json`);
+      const servicesData = await servicesRes.json();
+
+
+      // Merge data
+      const data = {
+        ...companyData,
+        services: servicesData.services,
+      };
+
+      // Company name
+      document.getElementById('company-name').innerText = data.name;
+      document.getElementById('company-name-footer').innerText = data.name;
+
+      // Services
+      const serviceContainer = document.getElementById('services-container');
+      servicesData.services.forEach(service => {
+        const div = document.createElement('div');
+        div.className = "bg-gray-100 p-6 rounded shadow";
+        div.innerHTML = `
+          <h4 class="text-xl font-semibold mb-2">${service.title}</h4>
+          <p>${service.longDescription}</p>`;
+        serviceContainer.appendChild(div);
+      });
+
+
+    }
+
+    window.onload = loadCompanyInfo;
+  </script>
+
+</body>
+</html>
+

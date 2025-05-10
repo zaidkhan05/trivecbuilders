@@ -1,0 +1,14 @@
+{
+    "services": [
+    {
+      "title": "Residential Construction",
+      "shortDescription": "Custom homes, renovations, additions — we bring your dream home to life with expert craftsmanship and care.",
+      "longDescription": "We specialize in custom homes, renovations, and additions. Our team works closely with you to ensure your vision is realized with expert craftsmanship and care. From concept to completion, we handle every detail to create a space that reflects your style and meets your needs."
+    },
+    {
+      "title": "Commercial Construction",
+      "shortDescription": "From office buildings to tenant build-outs, our commercial work meets business goals with quality and efficiency.",
+      "longDescription": "We undertake a wide range of commercial construction projects, including office buildings, retail spaces, and tenant build-outs. Our team is committed to delivering high-quality work that meets your business objectives and enhances your space."
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html">
+        <h1 class="text-2xl font-bold text-blue-700">AHM Elite Builders</h1>
+      </a>
+    </div>
+  </header>
+
+  <!-- Project Content -->
+  <main class="max-w-5xl mx-auto px-4 py-16">
+    <h2 id="project-title" class="text-3xl font-bold mb-4">Loading...</h2>
+    <p id="project-description" class="mb-8 text-gray-600">...</p>
+
+    <div id="project-gallery" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Images will load here -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center py-6">
+    <p>&copy; 2025 AHM Elite Builders. All rights reserved.</p>
+  </footer>
+
+  <!-- Script to Load Project by ID -->
+  <script>
+    async function loadProject() {
+      const params = new URLSearchParams(window.location.search);
+      const projectId = params.get('id');
+      const res = await fetch('../jsonfiles/projects.json');
+      const data = await res.json();
+
+      const project = data.projects.find(p => p.id === projectId);
+      const titleEl = document.getElementById('project-title');
+      const descEl = document.getElementById('project-description');
+      const galleryEl = document.getElementById('project-gallery');
+
+      if (!project) {
+        titleEl.innerText = "Project Not Found";
+        descEl.remove();
+        return;
+      }
+
+      document.title = project.title;
+      titleEl.innerText = project.title;
+      descEl.innerText = project.description;
+
+      const images = Array.isArray(project.image) ? project.image : [project.image];
+      images.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = project.title;
+        img.className = "w-full h-64 object-cover rounded shadow";
+        galleryEl.appendChild(img);
+      });
+    }
+
+    window.onload = loadProject;
+  </script>
+
+</body>
+</html>
