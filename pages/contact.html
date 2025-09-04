@@ -6,20 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
-  <!-- Header -->
-  <header class="bg-white shadow">
+
+    <!-- Header -->
+  <header class="sticky top-0 bg-white shadow z-50">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="index.html">
-        <h1 class="text-2xl font-bold text-blue-700">AHM Elite Builders</h1>
+      <a href="index.html" class="hover:opacity-80 transition">
+        <h1 id="company-name" class="text-2xl font-bold text-blue-700">Loading...</h1>
       </a>
       <nav class="space-x-6 text-sm font-semibold">
         <a href="services.html" class="hover:text-blue-700">Services</a>
         <a href="projects.html" class="hover:text-blue-700">Projects</a>
-        <a href="#" class="text-blue-700 underline">Contact</a>
+        <a href="contact.html" class="hover:text-blue-700">Contact</a>
       </nav>
     </div>
   </header>
@@ -65,12 +67,26 @@
 
   <!-- Footer -->
   <footer class="bg-gray-800 text-white text-center py-6">
-    <p>&copy; 2025 AHM Elite Builders. All rights reserved.</p>
+    <p>&copy; 2025 <span id="company-name-footer">Company</span>. All rights reserved.</p>
   </footer>
 
   <!-- Script to Load Email from JSON -->
+   
   <script>
+    async function loadCompanyInfo() {
+      jsonFileDir = '../jsonfiles/';
+      const companyRes = await fetch(`${jsonFileDir}companyinfo.json`);
+      const companyData = await companyRes.json();
+
+
+      // Company name
+      document.getElementById('company-name').innerText = companyData.name;
+      document.getElementById('company-name-footer').innerText = companyData.name;
+
+
+    }
     async function loadCompanyContact() {
+      
       try {
         const res = await fetch('../jsonfiles/companyinfo.json');
         const data = await res.json();
@@ -82,7 +98,10 @@
       }
     }
 
-    window.onload = loadCompanyContact;
+    window.onload = () => {
+      loadCompanyContact();
+      loadCompanyInfo();
+    };
   </script>
 
 </body>
