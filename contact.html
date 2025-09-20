@@ -145,7 +145,7 @@
 
   <script>
     async function loadCompanyInfo() {
-      jsonFileDir = '../jsonfiles/';
+      jsonFileDir = 'jsonfiles/';
       const companyRes = await fetch(`${jsonFileDir}companyinfo.json`);
       const companyData = await companyRes.json();
 
