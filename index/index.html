@@ -89,7 +89,7 @@
   <!-- Script to Load JSON -->
   <script>
     async function loadCompanyInfo() {
-      jsonFileDir = 'jsonfiles/';
+      jsonFileDir = '../jsonfiles/';
       const companyRes = await fetch(`${jsonFileDir}companyinfo.json`);
       const companyData = await companyRes.json();
       const servicesRes = await fetch(`${jsonFileDir}services.json`);
