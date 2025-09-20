@@ -129,10 +129,10 @@
         <i class="fa-solid fa-envelope text-[#273038] text-xl"></i>
         <span id="company-email">info@company.com</span>
       </div>
-      <div class="flex items-center space-x-4">
+      <!-- <div class="flex items-center space-x-4">
         <i class="fa-solid fa-location-dot text-[#273038] text-xl"></i>
         <span id="company-address">123 Main St, City, State</span>
-      </div>
+      </div> -->
     </div>
   </main>
 
@@ -142,29 +142,39 @@
   </footer>
 
   <!-- Script to Load JSON -->
+
   <script>
     async function loadCompanyInfo() {
-      const jsonFileDir = 'jsonfiles/';
+      jsonFileDir = '../jsonfiles/';
+      const companyRes = await fetch(`${jsonFileDir}companyinfo.json`);
+      const companyData = await companyRes.json();
+
+
+      // Company name
+      document.getElementById('company-name').innerText = companyData.name;
+      document.getElementById('company-name-footer').innerText = companyData.name;
+      document.getElementById('company-phone').innerText = companyData.phone;
+      document.getElementById('company-email').innerText = companyData.email;
+
+    }
+    async function loadCompanyContact() {
+      
       try {
-        const companyRes = await fetch(`${jsonFileDir}companyinfo.json`);
-        const data = await companyRes.json();
-
-        // Update dynamic fields
-        document.getElementById('company-name').innerText = data.name;
-        document.getElementById('company-name-footer').innerText = data.name;
-        document.getElementById('company-phone').innerText = data.phone;
-        document.getElementById('company-phone-link').href = `tel:${data.phone}`;
-        document.getElementById('company-email').innerText = data.email;
-        document.getElementById('company-address').innerText = data.address;
-
-        // Form action
-        document.getElementById('contact-form').action = `https://formsubmit.co/${data.email}`;
+        const res = await fetch('jsonfiles/companyinfo.json');
+        const data = await res.json();
+        const form = document.getElementById('contact-form');
+        form.action = `https://formsubmit.co/${data.email}`;
+        document.title = `Contact ${data.name}`;
       } catch (err) {
-        console.error('Error loading company info:', err);
+        console.error('Error loading companyinfo.json:', err);
       }
     }
 
-    window.onload = loadCompanyInfo;
+    window.onload = () => {
+      loadCompanyContact();
+      loadCompanyInfo();
+    };
   </script>
+
 </body>
 </html>
