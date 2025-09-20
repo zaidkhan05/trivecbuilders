@@ -76,7 +76,7 @@
   <!-- Script to Load JSON -->
   <script>
     async function loadProjects() {
-      const jsonFileDir = '../jsonfiles/';
+      const jsonFileDir = 'jsonfiles/';
       try {
         const companyRes = await fetch(`${jsonFileDir}companyinfo.json`);
         const companyData = await companyRes.json();
