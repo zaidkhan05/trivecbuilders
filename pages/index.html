@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <title>home</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -21,19 +22,26 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
+
   <!-- Header -->
-  <header class="sticky top-0 bg-white shadow z-50">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="index.html" class="hover:opacity-80 transition">
-        <h1 id="company-name" class="text-2xl font-bold text-blue-700">Loading...</h1>
-      </a>
-      <nav class="space-x-6 text-sm font-semibold">
+<header class="sticky top-0 bg-white shadow z-50">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition">
+      <img src="assets/logo.png" alt="Logo" class="h-10 w-auto">
+      <h1 id="company-name" class="text-2xl font-bold text-blue-700">Loading...</h1>
+    </a>
+    <div class="flex items-center space-x-6">
+      <nav class="hidden md:flex space-x-6 text-sm font-semibold">
         <a href="services.html" class="hover:text-blue-700">Services</a>
         <a href="projects.html" class="hover:text-blue-700">Projects</a>
         <a href="contact.html" class="hover:text-blue-700">Contact</a>
       </nav>
+      <a href="tel:+1234567890" class="hidden md:block font-bold text-blue-700">Call Us</a>
+      <a href="contact.html" class="bg-blue-700 text-white px-4 py-2 rounded shadow hover:bg-blue-800 transition">Get a Quote</a>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <!-- Hero Section -->
   <section class="bg-[url('https://images.unsplash.com/photo-1581091870622-c6a8f8c1b351')] bg-cover bg-center text-white text-center py-36 relative">
@@ -49,8 +57,8 @@
   <section id="services" class="py-20 bg-white">
     <div class="max-w-6xl mx-auto px-4 text-center">
       <h3 class="text-3xl font-bold mb-12">What We Offer</h3>
-      <div id="services-container" class="grid md:grid-cols-2 gap-10 text-left">
-        <!-- Services will load here -->
+       <div id="services-container" class="grid md:grid-cols-3 gap-10 text-left">
+        <!-- Dynamically filled by JSON -->
       </div>
     </div>
   </section>
@@ -110,12 +118,21 @@
       const serviceContainer = document.getElementById('services-container');
       servicesData.services.forEach(service => {
         const div = document.createElement('div');
-        div.className = "bg-gray-100 p-6 rounded shadow";
+        div.className = "bg-gray-100 p-6 rounded shadow hover:shadow-lg transition";
+
         div.innerHTML = `
-          <h4 class="text-xl font-semibold mb-2">${service.title}</h4>
-          <p>${service.shortDescription}</p>`;
+          <div class="flex flex-col items-start">
+            <div class="text-blue-700 mb-4">
+              <i class="${service.icon} text-3xl"></i>
+            </div>
+            <h4 class="text-xl font-semibold mb-2">${service.title}</h4>
+            <p>${service.shortDescription}</p>
+          </div>`;
+
         serviceContainer.appendChild(div);
       });
+
+
 
       // Projects
       const projectContainer = document.getElementById('projects-container');
