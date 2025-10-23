@@ -163,7 +163,7 @@
         const res = await fetch('jsonfiles/companyinfo.json');
         const data = await res.json();
         const form = document.getElementById('contact-form');
-        form.action = `https://formsubmit.co/${data.email}`;
+        form.action = `https://formsubmit.co/${data.emailform}`;
         document.title = `Contact ${data.name}`;
       } catch (err) {
         console.error('Error loading companyinfo.json:', err);
