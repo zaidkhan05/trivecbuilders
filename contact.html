@@ -92,7 +92,7 @@
       <h3 class="text-2xl font-bold mb-6 text-[#273038]">Send Us a Message</h3>
       <form id="contact-form" method="POST" class="bg-white shadow rounded-lg p-6 space-y-4">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="thankyou.html">
+        <!-- <input type="hidden" name="_next" value="thankyou.html"> -->
 
         <div>
           <label for="name" class="block text-sm font-medium mb-1">Name</label>
@@ -154,7 +154,7 @@
       document.getElementById('company-name').innerText = companyData.name;
       document.getElementById('company-name-footer').innerText = companyData.name;
       document.getElementById('company-phone').innerText = companyData.phone;
-      document.getElementById('company-email').innerText = companyData.email;
+      document.getElementById('company-email').innerText = companyData.emailtext;
 
     }
     async function loadCompanyContact() {
