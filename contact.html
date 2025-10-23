@@ -154,7 +154,7 @@
       document.getElementById('company-name').innerText = companyData.name;
       document.getElementById('company-name-footer').innerText = companyData.name;
       document.getElementById('company-phone').innerText = companyData.phone;
-      document.getElementById('company-email').innerText = companyData.emailtext;
+      document.getElementById('company-email').innerText = companyData.email;
 
     }
     async function loadCompanyContact() {
@@ -163,7 +163,7 @@
         const res = await fetch('jsonfiles/companyinfo.json');
         const data = await res.json();
         const form = document.getElementById('contact-form');
-        form.action = `https://formsubmit.co/${data.email}`;
+        form.action = `https://formsubmit.co/${data.emailform}`;
         document.title = `Contact ${data.name}`;
       } catch (err) {
         console.error('Error loading companyinfo.json:', err);
