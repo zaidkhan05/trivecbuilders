@@ -2,6 +2,7 @@
 {
   "name": "Trivec Builders",
   "tagline": "Building your vision",
+  "emailform": "b1fc0618b537dd2ef2cedeb489b6e114",
   "email": "ali@trivecbuilders.com",
   "phone": "+1 (470) 257-2913",
   "address": {
@@ -11,9 +12,6 @@
     "zip": "30301"
   },
   "social": {
-    "facebook": "https://www.facebook.com/ahmelitebuilders",
-    "twitter": "https://twitter.com/ahmelitebuilders",
-    "instagram": "https://www.instagram.com/ahmelitebuilders",
-    "linkedin": "https://www.linkedin.com/company/ahmelitebuilders"
+    "instagram": "https://www.instagram.com/trivecbuilders/"
   }
 }

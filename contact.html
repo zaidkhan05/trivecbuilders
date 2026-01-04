@@ -40,7 +40,7 @@
     <div class="hidden md:flex items-center space-x-6">
       <nav class="flex space-x-6 text-sm font-semibold text-white">
         <a href="services.html" class="hover:text-blue-400">Services</a>
-        <a href="projects.html" class="hover:text-blue-400">Projects</a>
+        <!-- <a href="projects.html" class="hover:text-blue-400">Projects</a> -->
       </nav>
       <a href="contact.html" class="bg-white text-[#273038] px-4 py-2 rounded shadow hover:bg-blue-600 transition">
         Get a Quote
@@ -57,7 +57,7 @@
   <div id="mobile-menu" class="hidden md:hidden bg-[#273038] text-blue-100">
     <nav class="flex flex-col space-y-2 px-4 py-4 text-sm font-semibold">
       <a href="services.html" class="hover:text-blue-400">Services</a>
-      <a href="projects.html" class="hover:text-blue-400">Projects</a>
+      <!-- <a href="projects.html" class="hover:text-blue-400">Projects</a> -->
       <a href="contact.html" class="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600 transition w-fit">
         Get a Quote
       </a>
@@ -92,7 +92,7 @@
       <h3 class="text-2xl font-bold mb-6 text-[#273038]">Send Us a Message</h3>
       <form id="contact-form" method="POST" class="bg-white shadow rounded-lg p-6 space-y-4">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="thankyou.html">
+        <!-- <input type="hidden" name="_next" value="thankyou.html"> -->
 
         <div>
           <label for="name" class="block text-sm font-medium mb-1">Name</label>
@@ -163,7 +163,7 @@
         const res = await fetch('jsonfiles/companyinfo.json');
         const data = await res.json();
         const form = document.getElementById('contact-form');
-        form.action = `https://formsubmit.co/${data.email}`;
+        form.action = `https://formsubmit.co/${data.emailform}`;
         document.title = `Contact ${data.name}`;
       } catch (err) {
         console.error('Error loading companyinfo.json:', err);
