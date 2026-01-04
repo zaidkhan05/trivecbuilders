@@ -1,0 +1,127 @@
+import { useState } from 'react';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Drawer from '@mui/material/Drawer';
+import Stack from '@mui/material/Stack';
+import Divider from '@mui/material/Divider';
+import company from '../data/companyinfo.json';
+
+const links = [
+  { label: 'Services', to: '/services' },
+  { label: 'Projects', to: '/projects' },
+  { label: 'Contact', to: '/contact' },
+];
+
+function NavigationBar() {
+  const [open, setOpen] = useState(false);
+  const location = useLocation();
+
+  const toggle = () => setOpen((prev) => !prev);
+
+  return (
+    <AppBar position="sticky" color="primary" elevation={2}>
+      <Toolbar sx={{ maxWidth: 1200, width: '100%', mx: 'auto' }}>
+        <Button
+          component={RouterLink}
+          to="/"
+          color="inherit"
+          sx={{ pl: 0, textTransform: 'none' }}
+        >
+          <Stack direction="row" spacing={1} alignItems="center">
+            <Box
+              sx={{
+                width: 40,
+                height: 40,
+                bgcolor: 'background.paper',
+                color: 'primary.main',
+                borderRadius: 2,
+                display: 'grid',
+                placeItems: 'center',
+                fontWeight: 800,
+              }}
+            >
+              T
+            </Box>
+            <Typography variant="h6" fontWeight={800} letterSpacing={0.5}>
+              {company.name}
+            </Typography>
+          </Stack>
+        </Button>
+
+        <Box sx={{ flex: 1 }} />
+
+        <Stack
+          direction="row"
+          spacing={2}
+          alignItems="center"
+          sx={{ display: { xs: 'none', md: 'flex' } }}
+        >
+          {links.map((link) => (
+            <Button
+              key={link.to}
+              component={RouterLink}
+              to={link.to}
+              color={location.pathname === link.to ? 'secondary' : 'inherit'}
+            >
+              {link.label}
+            </Button>
+          ))}
+          <Button
+            variant="contained"
+            color="secondary"
+            component={RouterLink}
+            to="/contact"
+          >
+            Get a Quote
+          </Button>
+        </Stack>
+
+        <IconButton
+          onClick={toggle}
+          sx={{ display: { xs: 'inline-flex', md: 'none' }, color: 'inherit' }}
+          aria-label="menu"
+        >
+          {open ? <CloseIcon /> : <MenuIcon />}
+        </IconButton>
+      </Toolbar>
+
+      <Drawer anchor="right" open={open} onClose={toggle} sx={{ display: { md: 'none' } }}>
+        <Box sx={{ width: 260, p: 3 }}>
+          <Stack spacing={2}>
+            {links.map((link) => (
+              <Button
+                key={link.to}
+                component={RouterLink}
+                to={link.to}
+                onClick={toggle}
+                color={location.pathname === link.to ? 'secondary' : 'primary'}
+                variant={location.pathname === link.to ? 'contained' : 'text'}
+              >
+                {link.label}
+              </Button>
+            ))}
+            <Divider />
+            <Button
+              variant="contained"
+              color="secondary"
+              component={RouterLink}
+              to="/contact"
+              onClick={toggle}
+            >
+              Get a Quote
+            </Button>
+          </Stack>
+        </Box>
+      </Drawer>
+    </AppBar>
+  );
+}
+
+export default NavigationBar;

@@ -1,0 +1,28 @@
+{
+  "projects": [
+    {
+      "title": "MOTW Coffee and Pastries",
+      "id": "MOTW",
+      "type": "Commercial",
+      "description": "Alpharetta, GA — 3,100 sq ft commercial build.",
+      "image": [
+        "https://motw.coffee/wp-content/uploads/2025/02/Alpharetta.png",
+        "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npC8x6WVRahF2T3XRhBTzPSqJBtOJ7eidbnBv3usjWVzAmgif253zYP2b_n2tgy8ougvJCG05aV6wuL_8MDRcuRXmK2Ho07FZCXH15V9LVjEYxQuKAF4QOn4MGq8wtebulJ8bZ2Sg=s680-w680-h510-rw"
+      ]
+    },
+    {
+      "title": "Retail Office Fit-Out",
+      "id": "Retail",
+      "type": "Commercial",
+      "description": "Sandy Springs, GA — Commercial renovation with modern design focus.",
+      "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e"
+    },
+    {
+      "title": "Historic Home Renovation",
+      "id": "Historic",
+      "type": "Residential",
+      "description": "Marietta, GA — Full interior gut and high-end rebuild while preserving charm.",
+      "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+    }
+  ]
+}

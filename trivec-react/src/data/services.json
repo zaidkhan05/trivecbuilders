@@ -1,0 +1,22 @@
+{
+  "services": [
+    {
+      "title": "Residential Construction",
+      "shortDescription": "Custom homes, renovations, and more.",
+      "longDescription": "We specialize in custom homes, renovations, and additions. Our team works closely with you to ensure your vision is realized with expert craftsmanship and care. From concept to completion, we handle every detail to create a space that reflects your style and meets your needs.",
+      "icon": "🏠"
+    },
+    {
+      "title": "Commercial Construction",
+      "shortDescription": "Office buildings, retail, and hospitality projects.",
+      "longDescription": "We undertake a wide range of commercial construction projects, including office buildings, retail spaces, and hospitality venues. Our team is dedicated to delivering high-quality work that meets your business objectives and enhances your space.",
+      "icon": "🏢"
+    },
+    {
+      "title": "Renovations & Remodeling",
+      "shortDescription": "Transforming existing spaces into something new.",
+      "longDescription": "Whether it's a kitchen remodel, bathroom upgrade, or whole-home renovation, we bring new life to your existing spaces. Our team works with you to create designs that enhance functionality and aesthetics.",
+      "icon": "🛠️"
+    }
+  ]
+}

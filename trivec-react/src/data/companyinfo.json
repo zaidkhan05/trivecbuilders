@@ -1,0 +1,18 @@
+{
+  "name": "Trivec Builders",
+  "tagline": "Building your vision",
+  "email": "ali@trivecbuilders.com",
+  "phone": "+1 (470) 257-2913",
+  "address": {
+    "street": "1234 Main St",
+    "city": "Atlanta",
+    "state": "GA",
+    "zip": "30301"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/ahmelitebuilders",
+    "twitter": "https://twitter.com/ahmelitebuilders",
+    "instagram": "https://www.instagram.com/ahmelitebuilders",
+    "linkedin": "https://www.linkedin.com/company/ahmelitebuilders"
+  }
+}
