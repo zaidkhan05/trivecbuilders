@@ -17,25 +17,21 @@ const owner = {
 
 const teamMembers = [
   {
+    name: 'Hafsah Uddin',
+    role: 'General Manager',
+    bio: '',
+  },
+  {
+    name: 'Abubakkar',
+    role: 'Assistant Project Manager',
+    bio: '',
+  },
+  {
     name: 'Zaid Khan',
     role: 'Web Developer',
-    bio: 'Built the website, ensuring a responsive and user-friendly experience.',
+    bio: '',
   },
-  {
-    name: 'James Carter',
-    role: 'Site Superintendent',
-    bio: 'Leads field crews, inspections, and jobsite safety to keep work moving cleanly.',
-  },
-  {
-    name: 'mahnam jeff',
-    role: 'engineer',
-    bio: 'Builds estimates, scopes trades, and aligns budgets before we mobilize.',
-  },
-  {
-    name: 'Ethan Brooks',
-    role: 'the intern',
-    bio: 'Coordinates subs, RFIs, and punch so turnovers stay on schedule.',
-  },
+  
 ];
 
 const initials = (name) =>
@@ -45,7 +41,7 @@ const initials = (name) =>
     .join('')
     .toUpperCase();
 
-const phoneLink = `tel:${company.phone.replace(/[^\d+]/g, '')}`;
+const contactLink = '/#contact';
 
 const heroImage = 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80';
 
@@ -56,7 +52,7 @@ function AboutPage() {
         title={`Meet the Team at ${company.name}`}
         subtitle="People who plan, manage, and deliver your builds across Georgia."
         ctaLabel="Talk with us"
-        ctaTo={phoneLink}
+        ctaTo={contactLink}
         bgImage={heroImage}
       />
 
@@ -106,11 +102,11 @@ function AboutPage() {
               Field leadership and office support who keep every phase coordinated.
             </Typography>
           </Stack>
-          <Grid container spacing={3}>
+          <Grid container spacing={3} justifyContent="center">
             {teamMembers.map((member) => (
-              <Grid item xs={12} sm={6} md={3} key={member.name}>
+              <Grid item xs={12} sm={6} md={4} key={member.name}>
                 <Paper variant="outlined" sx={{ p: 3, height: '100%' }}>
-                  <Stack spacing={1.5} alignItems="flex-start">
+                  <Stack spacing={1.5} alignItems="center" textAlign="center">
                     <Avatar sx={{ width: 64, height: 64, fontWeight: 700 }}>
                       {initials(member.name)}
                     </Avatar>

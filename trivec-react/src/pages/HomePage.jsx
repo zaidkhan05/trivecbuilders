@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
@@ -6,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import Hero from '../components/Hero';
 import ServiceCard from '../components/ServiceCard';
 import ProjectCard from '../components/ProjectCard';
@@ -68,6 +69,18 @@ const emailLink = `mailto:${company.email}`;
 
 function HomePage() {
   const featuredProjects = projectsData.projects.slice(0, 3);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === '#contact') {
+      const el = document.getElementById('contact');
+      if (el) {
+        window.requestAnimationFrame(() => {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+    }
+  }, [location]);
 
   return (
     <>
@@ -95,6 +108,7 @@ function HomePage() {
                 Comprehensive construction services with transparent communication and meticulous execution.
               </Typography>
             </Stack>
+            <Grid item xs={12} md={6}>
             <Grid container spacing={3}>
               {servicesData.services.map((service) => (
                 <Grid item xs={12} md={4} key={service.title}>
@@ -105,6 +119,7 @@ function HomePage() {
                   />
                 </Grid>
               ))}
+            </Grid>
             </Grid>
           </Stack>
         </Container>
@@ -188,6 +203,7 @@ function HomePage() {
             <Typography variant="h4" fontWeight={800} color="text.primary">
               What we stand for
             </Typography>
+            <Grid item xs={12} md={6}>
             <Grid container spacing={3}>
               {pillars.map((pillar) => (
                 <Grid item xs={12} sm={4} key={pillar.title}>
@@ -202,6 +218,7 @@ function HomePage() {
                 </Grid>
               ))}
             </Grid>
+            </Grid>
           </Stack>
         </Container>
       </Box>
@@ -215,12 +232,14 @@ function HomePage() {
             <Typography color="primary.contrastText" sx={{ opacity: 0.9 }}>
               A snapshot of our recent commercial and residential work.
             </Typography>
+            <Grid item xs={12} md={6}>
             <Grid container spacing={3}>
               {featuredProjects.map((project) => (
                 <Grid item xs={12} md={4} key={project.id}>
                   <ProjectCard {...project} />
                 </Grid>
               ))}
+            </Grid>
             </Grid>
             <Button
               component={RouterLink}
