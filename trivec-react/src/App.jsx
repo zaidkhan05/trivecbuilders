@@ -4,9 +4,8 @@ import Box from '@mui/material/Box';
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
-import ServicesPage from './pages/ServicesPage';
+import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
-import ContactPage from './pages/ContactPage';
 
 function App() {
   return (
@@ -15,9 +14,8 @@ function App() {
       <Box component="main" flex={1}>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Box>

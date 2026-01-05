@@ -10,13 +10,11 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Drawer from '@mui/material/Drawer';
 import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
 import company from '../data/companyinfo.json';
 
 const links = [
-  { label: 'Services', to: '/services' },
+  { label: 'About', to: '/about' },
   { label: 'Projects', to: '/projects' },
-  { label: 'Contact', to: '/contact' },
 ];
 
 function NavigationBar() {
@@ -27,7 +25,7 @@ function NavigationBar() {
 
   return (
     <AppBar position="sticky" color="primary" elevation={2}>
-      <Toolbar sx={{ maxWidth: 1200, width: '100%', mx: 'auto' }}>
+      <Toolbar sx={{ maxWidth: 1200, width: '100%', mx: 'auto', height: 100 }}>
         <Button
           component={RouterLink}
           to="/"
@@ -36,20 +34,16 @@ function NavigationBar() {
         >
           <Stack direction="row" spacing={1} alignItems="center">
             <Box
+              component="img"
+              src="/logoimg.png"
+              alt={`${company.name} logo`}
               sx={{
-                width: 40,
                 height: 40,
-                bgcolor: 'background.paper',
-                color: 'primary.main',
-                borderRadius: 2,
-                display: 'grid',
-                placeItems: 'center',
-                fontWeight: 800,
+                width: 'auto',
+                objectFit: 'contain',
               }}
-            >
-              T
-            </Box>
-            <Typography variant="h6" fontWeight={800} letterSpacing={0.5}>
+            />
+            <Typography variant="h6" fontWeight={500} letterSpacing={1.75} fontSize={35}>
               {company.name}
             </Typography>
           </Stack>
@@ -70,17 +64,11 @@ function NavigationBar() {
               to={link.to}
               color={location.pathname === link.to ? 'secondary' : 'inherit'}
             >
-              {link.label}
+              <Typography variant="h4" fontWeight={500} letterSpacing={1} fontSize={20}>
+                {link.label}
+              </Typography>
             </Button>
           ))}
-          <Button
-            variant="contained"
-            color="secondary"
-            component={RouterLink}
-            to="/contact"
-          >
-            Get a Quote
-          </Button>
         </Stack>
 
         <IconButton
@@ -107,16 +95,6 @@ function NavigationBar() {
                 {link.label}
               </Button>
             ))}
-            <Divider />
-            <Button
-              variant="contained"
-              color="secondary"
-              component={RouterLink}
-              to="/contact"
-              onClick={toggle}
-            >
-              Get a Quote
-            </Button>
           </Stack>
         </Box>
       </Drawer>
