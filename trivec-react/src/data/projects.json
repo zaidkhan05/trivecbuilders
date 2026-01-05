@@ -5,24 +5,35 @@
       "id": "MOTW",
       "type": "Commercial",
       "description": "Alpharetta, GA — 3,100 sq ft commercial build.",
-      "image": [
-        "https://motw.coffee/wp-content/uploads/2025/02/Alpharetta.png",
-        "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npC8x6WVRahF2T3XRhBTzPSqJBtOJ7eidbnBv3usjWVzAmgif253zYP2b_n2tgy8ougvJCG05aV6wuL_8MDRcuRXmK2Ho07FZCXH15V9LVjEYxQuKAF4QOn4MGq8wtebulJ8bZ2Sg=s680-w680-h510-rw"
-      ]
+      "image": "/c1/motw%20alpharetta.png"
     },
     {
-      "title": "Retail Office Fit-Out",
-      "id": "Retail",
+      "title": "Doctors Office Planning",
+      "id": "DoctorsOffice",
       "type": "Commercial",
-      "description": "Sandy Springs, GA — Commercial renovation with modern design focus.",
-      "image": "https://images.unsplash.com/photo-1503387762-592deb58ef4e"
+      "description": "Design of a doctors office.",
+      "image": "/c2/Doctors%20Office%201.PNG"
     },
     {
-      "title": "Historic Home Renovation",
-      "id": "Historic",
+      "title": "Lakeside Home build",
+      "id": "lake",
       "type": "Residential",
-      "description": "Marietta, GA — Full interior gut and high-end rebuild while preserving charm.",
-      "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+      "description": "Lakeside 2 story 2567 sq ft home build.",
+      "image": "/r1/IMG_5739.png"
+    },
+    {
+      "title": "ADU Alpharetta",
+      "id": "aduAlpharetta",
+      "type": "Residential",
+      "description": "Accessory dwelling unit extension in Alpharetta, GA.",
+      "image": ["/r2/ADU1.PNG", "/r2/ADU2.PNG", "/r2/ADU3.PNG"]
+    },
+    {
+      "title": "Atlanta Home build",
+      "id": "1122statest",
+      "type": "Residential",
+      "description": "2 story Home build in the heart of Atlanta over open style garage.",
+      "image": ["/r3/r31.PNG", "/r3/IMG_6373.png", "/r3/IMG_6056.png"]
     }
   ]
 }

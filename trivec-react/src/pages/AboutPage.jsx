@@ -22,7 +22,7 @@ const teamMembers = [
     bio: '',
   },
   {
-    name: 'Abubakkar',
+    name: 'Abubakar',
     role: 'Assistant Project Manager',
     bio: '',
   },
