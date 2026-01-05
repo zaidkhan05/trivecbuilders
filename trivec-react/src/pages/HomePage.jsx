@@ -269,14 +269,6 @@ function HomePage() {
                   </Typography>
                   <Stack spacing={1.5}>
                     <Typography color="text.primary" fontWeight={700}>
-                      Phone
-                    </Typography>
-                    <Button component="a" href={phoneLink} color="secondary" variant="outlined">
-                      {company.phone}
-                    </Button>
-                  </Stack>
-                  <Stack spacing={1.5}>
-                    <Typography color="text.primary" fontWeight={700}>
                       Email
                     </Typography>
                     <Button component="a" href={emailLink} color="secondary" variant="outlined">
