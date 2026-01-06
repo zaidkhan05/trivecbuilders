@@ -22,7 +22,7 @@ function ProjectCard({ title, description, image }) {
     <Card elevation={2} sx={{ height: '100%' }}>
       {current && (
         <Box position="relative">
-          <CardMedia component="img" height="200" image={current} alt={title} sx={{ objectFit: 'cover' }} />
+          <CardMedia component="img" height="200" image={current} alt={title} sx={{ objectFit: 'contain' }} />
           {hasMultiple && (
             <>
               <IconButton
