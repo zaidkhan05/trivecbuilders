@@ -18,6 +18,14 @@ function ProjectCard({ title, description, image }) {
   const hasMultiple = images.length > 1;
   const current = images[index] ?? '';
 
+  // Preload images so switching feels instantaneous and reduces flicker
+  useEffect(() => {
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, [images]);
+
   return (
     <Card elevation={2} sx={{ height: '100%' }}>
       {current && (
