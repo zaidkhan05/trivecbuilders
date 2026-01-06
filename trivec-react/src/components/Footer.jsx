@@ -15,12 +15,10 @@ function Footer() {
           <Link href={company.social.instagram} color="inherit" underline="hover" rel="noreferrer" target="_blank">
             Instagram
           </Link>
-          <Link href={company.social.facebook} color="inherit" underline="hover" rel="noreferrer" target="_blank">
-            Facebook
-          </Link>
-          <Link href={company.social.linkedin} color="inherit" underline="hover" rel="noreferrer" target="_blank">
-            LinkedIn
-          </Link>
+          {/*lisence number*/}
+          <Typography variant="body2">
+            License #GCC0009345
+          </Typography>
         </Stack>
       </Stack>
     </Box>

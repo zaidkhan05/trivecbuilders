@@ -4,15 +4,15 @@
   "email": "ali@trivecbuilders.com",
   "phone": "+1 (470) 257-2913",
   "address": {
-    "street": "1234 Main St",
-    "city": "Atlanta",
+    "street": "1205 Peachtree Pkwy Suite 1204",
+    "city": "Cumming",
     "state": "GA",
-    "zip": "30301"
+    "zip": "30041"
   },
   "social": {
     "facebook": "https://www.facebook.com/ahmelitebuilders",
     "twitter": "https://twitter.com/ahmelitebuilders",
-    "instagram": "https://www.instagram.com/ahmelitebuilders",
+    "instagram": "https://www.instagram.com/trivecbuilders/",
     "linkedin": "https://www.linkedin.com/company/ahmelitebuilders"
   }
 }

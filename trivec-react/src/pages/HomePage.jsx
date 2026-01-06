@@ -275,6 +275,17 @@ function HomePage() {
                       {company.email}
                     </Button>
                   </Stack>
+                  <Stack spacing={1.5}>
+                    <Typography color="text.primary" fontWeight={700}>
+                      Address
+                    </Typography>
+                    <Typography color="text.secondary">
+                      {company.address.street}
+                    </Typography>
+                    <Typography color="text.secondary">
+                      {company.address.city}, {company.address.state} {company.address.zip}
+                    </Typography>
+                  </Stack>
                 </Stack>
               </Paper>
             </Grid>
