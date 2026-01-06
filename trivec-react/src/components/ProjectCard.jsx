@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
@@ -10,8 +10,6 @@ import IconButton from '@mui/material/IconButton';
 function ProjectCard({ title, description, image }) {
   const images = (Array.isArray(image) ? image : [image]).filter(Boolean);
   const [index, setIndex] = useState(0);
-  const touchStartX = useRef(null);
-  const touchEndX = useRef(null);
 
   useEffect(() => {
     setIndex(0);
@@ -20,45 +18,11 @@ function ProjectCard({ title, description, image }) {
   const hasMultiple = images.length > 1;
   const current = images[index] ?? '';
 
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.touches ? e.touches[0].clientX : e.clientX;
-    touchEndX.current = null;
-  };
-
-  const handleTouchMove = (e) => {
-    touchEndX.current = e.touches ? e.touches[0].clientX : e.clientX;
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStartX.current == null || touchEndX.current == null) {
-      touchStartX.current = null;
-      touchEndX.current = null;
-      return;
-    }
-    const delta = touchStartX.current - touchEndX.current;
-    const threshold = 50; // px required to count as a swipe
-    if (delta > threshold) {
-      // swipe left -> next
-      setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    } else if (delta < -threshold) {
-      // swipe right -> previous
-      setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-    }
-    touchStartX.current = null;
-    touchEndX.current = null;
-  };
-
   return (
     <Card elevation={2} sx={{ height: '100%' }}>
       {current && (
-        <Box position="relative" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
-          <CardMedia
-            component="img"
-            height="200"
-            image={current}
-            alt={title}
-            sx={{ objectFit: 'contain', touchAction: 'pan-y', bgcolor: 'background.paper' }}
-          />
+        <Box position="relative">
+          <CardMedia component="img" height="200" image={current} alt={title} sx={{ objectFit: 'cover' }} />
           {hasMultiple && (
             <>
               <IconButton
