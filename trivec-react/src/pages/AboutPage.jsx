@@ -18,12 +18,7 @@ const owner = {
 const teamMembers = [
   {
     name: 'Hafsah Uddin',
-    role: 'General Manager',
-    bio: '',
-  },
-  {
-    name: 'Abubakar',
-    role: 'Assistant Project Manager',
+    role: 'Managing Partner',
     bio: '',
   },
   {

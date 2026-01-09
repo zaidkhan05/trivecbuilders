@@ -38,12 +38,12 @@ function NavigationBar() {
               src="/logoimg.png"
               alt={`${company.name} logo`}
               sx={{
-                height: 40,
+                height: 70,
                 width: 'auto',
                 objectFit: 'contain',
               }}
             />
-            <Typography variant="h6" fontWeight={500} letterSpacing={1.75} fontSize={35}>
+            <Typography variant="h6" fontWeight={700} letterSpacing={1.75} fontSize={35}  >
               {company.name}
             </Typography>
           </Stack>
