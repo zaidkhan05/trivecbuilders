@@ -12,7 +12,10 @@ const owner = {
   name: 'Ali Mohammed',
   role: 'Owner',
   bio: 'Founded Trivec Builders to deliver transparent, schedule-driven projects across Georgia.',
-  focus: 'Licensed GC who keeps communication clear, scopes tight, and quality consistent.',
+  career: 'With nearly a decade of experience in the construction industry, Ali brings a strong combination of hands-on field expertise and advanced technical education. He holds a Master’s degree in Construction Engineering Management from the University of Texas at Arlington and is the licensed qualifying holder for the company.',
+  focus: 'Ali has successfully managed and delivered a wide range of projects across public, commercial, multifamily, and residential sectors. His experience includes school district facilities, water district infrastructure, public safety complexes, fire stations, police stations, apartment communities, as well as commercial and residential developments.',
+  approach: 'Throughout his career, Ali has been involved in all phases of construction, including preconstruction planning, estimating, scheduling, subcontractor coordination, and project execution. His extensive work on public-sector and regulated projects has reinforced a strong commitment to safety, code compliance, quality control, and fiscal responsibility.',
+  leadership: 'As a licensed professional with a hands-on leadership approach, Ali is focused on delivering projects that meet the highest standards of craftsmanship while maintaining transparency, efficiency, and long-term value for clients.',
 };
 
 const teamMembers = [
@@ -79,8 +82,11 @@ function AboutPage() {
                 <Typography color="secondary" fontWeight={700}>
                   {owner.role}
                 </Typography>
-                <Typography color="text.secondary">{owner.bio}</Typography>
+                {/* <Typography color="text.secondary">{owner.bio}</Typography> */}
+                <Typography color="text.secondary">{owner.career}</Typography>
                 <Typography color="text.secondary">{owner.focus}</Typography>
+                <Typography color="text.secondary">{owner.approach}</Typography>
+                <Typography color="text.secondary">{owner.leadership}</Typography>
               </Stack>
             </Stack>
           </Paper>
